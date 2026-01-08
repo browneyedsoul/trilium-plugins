@@ -1,0 +1,1 @@
+console.log("Soon plugin loaded.");
