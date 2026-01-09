@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Trilium Outliner logo">
+  <title>Trilium Outliner</title>
+
+  <!-- rounded tile -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="none" stroke="#777" stroke-width="8"></rect>
+
+  <!-- bullets -->
+  <circle cx="34" cy="42" r="5" fill="#888"></circle>
+  <circle cx="34" cy="64" r="5" fill="#888"></circle>
+  <circle cx="34" cy="86" r="5" fill="#888"></circle>
+
+  <!-- heading lines (indent grows) -->
+  <path d="M48 42H98" fill="none" stroke="#888" stroke-width="8" stroke-linecap="round"></path>
+  <path d="M56 64H98" fill="none" stroke="#888" stroke-width="8" stroke-linecap="round"></path>
+  <path d="M64 86H98" fill="none" stroke="#888" stroke-width="8" stroke-linecap="round"></path>
+</svg>
