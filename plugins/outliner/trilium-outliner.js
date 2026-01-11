@@ -86,7 +86,12 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
     const el = this.$widget?.[0]
     if (!el) return null
 
-    return el.closest('.note-detail-pane') || el.closest('.center-pane') || document
+    return (
+      el.closest(".note-detail-pane") || 
+      el.closest(".center-pane") || 
+      el.closest(".split-note-container-widget") || 
+      document
+    );
   }
 
   _attach(paneRoot) {
@@ -215,16 +220,22 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
 
     let didApply = false
 
-    const ro = scope.querySelector(this.READONLY_SELECTOR)
-    if (ro && !ro.closest('.ck-editor__editable')) {
-      this._applyToContainer(ro)
-      didApply = true
+    // 모든 readonly 컨테이너 찾기 (탭이 여러 개일 때 대응)
+    const roList = scope.querySelectorAll(this.READONLY_SELECTOR);
+    for (const ro of roList) {
+      if (ro && !ro.closest(".ck-editor__editable")) {
+        this._applyToContainer(ro);
+        didApply = true;
+      }
     }
 
-    const ed = scope.querySelector(this.EDITABLE_SELECTOR)
-    if (ed) {
-      this._applyToContainer(ed)
-      didApply = true
+    // 모든 editable 컨테이너 찾기 (탭이 여러 개일 때 대응)
+    const edList = scope.querySelectorAll(this.EDITABLE_SELECTOR);
+    for (const ed of edList) {
+      if (ed) {
+        this._applyToContainer(ed);
+        didApply = true;
+      }
     }
 
     return didApply
