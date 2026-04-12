@@ -14,9 +14,9 @@
 To receive update notifications for installed plugins:
 
 1. Create a new **Code Note** in Trilium.
-2. Set the note type to **JSX**.
-3. Paste the [update-checker code](https://github.com/browneyedsoul/trilium-plugins/tree/main/plugins/update-checker/trilium-update-checker.jsx) into the note.
-4. Add the label `#widget` to that note.
+2. Set the note type to **JS Frontend**.
+3. Paste the [update-checker code](https://github.com/browneyedsoul/trilium-plugins/tree/main/plugins/update-checker/trilium-update-checker.js) into the note.
+4. Add the label `#run=frontendStartup` to that note.
 5. Refresh Trilium.
 
 Installed plugins automatically register their versions. When a newer version is released, a toast notification will appear in the bottom-right corner with a link to the release page.

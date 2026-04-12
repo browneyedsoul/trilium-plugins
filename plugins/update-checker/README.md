@@ -7,14 +7,14 @@ A widget that checks for plugin updates by comparing installed versions against 
 1. On load, it fetches tags from the GitHub repository.
 2. Compares each plugin's installed version against the latest tag (e.g. `outliner@1.1.0`).
 3. If a newer version exists, a toast notification appears in the bottom-right corner.
-4. Checks once every 24 hours (cached via localStorage).
+4. Checks once every hour (cached via localStorage).
 
 ## How to Use
 
 1. Create a new **Code Note** in Trilium.
-2. Set the note type to `JSX`.
+2. Set the note type to **JS Frontend**.
 3. Paste the plugin code into the note.
-4. Add the label `#widget` to that note.
+4. Add the label `#run=frontendStartup` to that note.
 5. Refresh Trilium.
 
 ## How to Update a Plugin
