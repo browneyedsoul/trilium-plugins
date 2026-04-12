@@ -17,6 +17,13 @@ A widget that checks for plugin updates by comparing installed versions against 
 4. Add the label `#widget` to that note.
 5. Refresh Trilium.
 
+## How to Update a Plugin
+
+1. Click the **Release** link in the toast notification.
+2. Copy the latest plugin code from the release page.
+3. Paste it into the existing Code Note in Trilium, replacing the old code.
+4. Refresh Trilium.
+
 ## How It Detects Installed Plugins
 
 Each plugin registers its name and version to localStorage on load (e.g. `trilium-plugin-outliner: "1.0.0"`). The update checker automatically discovers all registered plugins and compares their versions against GitHub tags. No manual configuration needed.

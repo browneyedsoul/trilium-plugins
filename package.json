@@ -2,12 +2,15 @@
   "name": "trilium-plugins",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "biome format --write .",
     "lint": "biome lint --write .",
-    "check": "biome check --write ."
+    "check": "biome check --write .",
+    "bump:major": "node scripts/bump-version.js major",
+    "bump:minor": "node scripts/bump-version.js minor",
+    "bump:patch": "node scripts/bump-version.js patch"
   },
   "keywords": [],
   "author": "TaurineApps Ltd.",
