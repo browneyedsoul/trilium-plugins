@@ -372,6 +372,9 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
       .ck-content blockquote p {
           margin-left: unset !important;
       }
+      .ck-content > div > div > div > ul {
+          margin-left: 1.25rem;
+      }
       @media (prefers-color-scheme: dark) {
           .ck-content blockquote {
               background-color: #292e2d !important;
