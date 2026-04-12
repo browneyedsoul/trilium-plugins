@@ -6,7 +6,7 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
     return 100
   }
 
-  static get VERSION() { return '1.0.0' }
+  static get VERSION() { return '1.0.1' }
   static get PLUGIN_NAME() { return 'outliner' }
 
   constructor() {
