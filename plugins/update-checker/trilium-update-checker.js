@@ -1,8 +1,8 @@
 const REPO = 'browneyedsoul/trilium-plugins'
 const CHECK_INTERVAL = 60 * 60 * 1000
-const CACHE_KEY = 'trilium-plugins-update-check'
+const CACHE_KEY = `trilium-plugins-update-check-${REPO}`
 const PLUGIN_PREFIX = 'trilium-plugin-'
-const TOAST_ID = 'trilium-plugins-update-toast'
+const TOAST_ID = `trilium-plugins-update-check-${REPO}`
 
 function getInstalledPlugins() {
   const plugins = []
