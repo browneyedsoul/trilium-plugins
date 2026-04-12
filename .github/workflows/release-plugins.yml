@@ -1,0 +1,40 @@
+name: Release Plugins
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Tag and release plugins
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for pkg in plugins/*/package.json; do
+            plugin=$(echo "$pkg" | cut -d'/' -f2)
+            version=$(jq -r '.version' "$pkg")
+            tag="${plugin}@${version}"
+
+            if git tag -l "$tag" | grep -q .; then
+              echo "⏭ $tag already exists, skipping"
+              continue
+            fi
+
+            echo "🏷 Creating release $tag"
+            git tag "$tag"
+            git push origin "$tag"
+
+            gh release create "$tag" \
+              --title "$plugin v$version" \
+              --notes "Release $plugin v$version" \
+              --target main
+          done

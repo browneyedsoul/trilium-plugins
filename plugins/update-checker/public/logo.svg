@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Trilium Update Checker logo">
+  <title>Trilium Update Checker</title>
+
+  <!-- rounded tile -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="none" stroke="#777" stroke-width="8"></rect>
+
+  <!-- circular arrow (refresh/update) -->
+  <path d="M64 36 A28 28 0 1 1 36 64" fill="none" stroke="#888" stroke-width="8" stroke-linecap="round"></path>
+  <polygon points="36,48 36,68 52,58" fill="#888"></polygon>
+
+  <!-- check mark -->
+  <path d="M52 68 L62 78 L80 56" fill="none" stroke="#888" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

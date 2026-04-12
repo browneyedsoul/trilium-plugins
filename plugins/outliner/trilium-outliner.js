@@ -6,9 +6,13 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
     return 100
   }
 
+  static get VERSION() { return '1.0.0' }
+  static get PLUGIN_NAME() { return 'outliner' }
+
   constructor() {
     super()
     this.contentSized()
+    localStorage.setItem(`trilium-plugin-${OutlineByHeadingWidget.PLUGIN_NAME}`, OutlineByHeadingWidget.VERSION)
 
     // ====== 설정 ======
     this.ACTIVATE_LABEL = null // (null 은 어디든 / "outline" 은 #outline 일 때만)

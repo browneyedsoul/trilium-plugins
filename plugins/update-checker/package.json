@@ -1,0 +1,7 @@
+{
+  "name": "trilium-update-checker",
+  "version": "1.0.0",
+  "description": "A widget that checks for plugin updates via GitHub tags",
+  "author": "browneyedsoul",
+  "license": "MIT"
+}
