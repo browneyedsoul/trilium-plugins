@@ -3,10 +3,21 @@ import { defineWidget, useState, useEffect } from "trilium:preact";
 const REPO = 'browneyedsoul/trilium-plugins'
 const CHECK_INTERVAL = 24 * 60 * 60 * 1000
 const CACHE_KEY = 'trilium-plugins-update-check'
+const PLUGIN_PREFIX = 'trilium-plugin-'
 
-const PLUGINS = [
-  { name: 'outliner', version: '1.0.0' },
-]
+const getInstalledPlugins = () => {
+  const plugins = []
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key.startsWith(PLUGIN_PREFIX) && key !== CACHE_KEY) {
+      plugins.push({
+        name: key.slice(PLUGIN_PREFIX.length),
+        version: localStorage.getItem(key),
+      })
+    }
+  }
+  return plugins
+}
 
 const compareVersions = (a, b) => {
   const pa = a.split('.').map(Number)
@@ -31,7 +42,7 @@ const checkForUpdates = async () => {
     const tags = (await res.json()).map(t => t.name)
     const updates = []
 
-    for (const plugin of PLUGINS) {
+    for (const plugin of getInstalledPlugins()) {
       const prefix = `${plugin.name}@`
       const versions = tags
         .filter(t => t.startsWith(prefix))
