@@ -13,7 +13,7 @@
     "bump:patch": "node scripts/bump-version.js patch"
   },
   "keywords": [],
-  "author": "TaurineApps Ltd.",
+  "author": "browneyedsoul",
   "license": "MIT",
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
