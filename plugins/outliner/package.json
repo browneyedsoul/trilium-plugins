@@ -1,6 +1,6 @@
 {
   "name": "trilium-outliner",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Plugin which automatically indents content based on heading level",
   "author": "browneyedsoul",
   "license": "MIT"
