@@ -33,8 +33,11 @@ jobs:
             git tag "$tag"
             git push origin "$tag"
 
+            (cd plugins/${plugin} && zip -r "../../${plugin}-v${version}.zip" . -x "public/*" "package.json")
+
             gh release create "$tag" \
               --title "$plugin v$version" \
               --notes "Release $plugin v$version" \
-              --target main
+              --target main \
+              "${plugin}-v${version}.zip"
           done
