@@ -10,13 +10,15 @@
     "check": "biome check --write .",
     "bump:major": "node scripts/bump-version.js major",
     "bump:minor": "node scripts/bump-version.js minor",
-    "bump:patch": "node scripts/bump-version.js patch"
+    "bump:patch": "node scripts/bump-version.js patch",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "browneyedsoul",
   "license": "MIT",
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
-    "@biomejs/biome": "2.4.11"
+    "@biomejs/biome": "2.4.11",
+    "husky": "^9.1.7"
   }
 }
