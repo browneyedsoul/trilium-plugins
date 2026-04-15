@@ -38,8 +38,8 @@ if (jsFile) {
   const jsPath = join(pluginDir, jsFile)
   const content = readFileSync(jsPath, 'utf-8')
   const updated = content.replace(
-    /static get VERSION\(\) \{ return '.*?' \}/,
-    `static get VERSION() { return '${nextVersion}' }`,
+    /static get VERSION\(\)\s*\{[\s\S]*?return\s*'.*?'[\s\S]*?\}/,
+    `static get VERSION() {\n    return '${nextVersion}'\n  }`,
   )
 
   if (content !== updated) {
