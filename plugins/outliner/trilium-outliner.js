@@ -6,13 +6,20 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
     return 100
   }
 
-  static get VERSION() { return '1.0.1' }
-  static get PLUGIN_NAME() { return 'outliner' }
+  static get VERSION() {
+    return '1.0.1'
+  }
+  static get PLUGIN_NAME() {
+    return 'outliner'
+  }
 
   constructor() {
     super()
     this.contentSized()
-    localStorage.setItem(`trilium-plugin-${OutlineByHeadingWidget.PLUGIN_NAME}`, OutlineByHeadingWidget.VERSION)
+    localStorage.setItem(
+      `trilium-plugin-${OutlineByHeadingWidget.PLUGIN_NAME}`,
+      OutlineByHeadingWidget.VERSION
+    )
 
     // ====== 설정 ======
     this.ACTIVATE_LABEL = null // (null 은 어디든 / "outline" 은 #outline 일 때만)
@@ -91,11 +98,11 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
     if (!el) return null
 
     return (
-      el.closest(".note-detail-pane") || 
-      el.closest(".center-pane") || 
-      el.closest(".split-note-container-widget") || 
+      el.closest('.note-detail-pane') ||
+      el.closest('.center-pane') ||
+      el.closest('.split-note-container-widget') ||
       document
-    );
+    )
   }
 
   _attach(paneRoot) {
@@ -225,20 +232,20 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
     let didApply = false
 
     // 모든 readonly 컨테이너 찾기 (탭이 여러 개일 때 대응)
-    const roList = scope.querySelectorAll(this.READONLY_SELECTOR);
+    const roList = scope.querySelectorAll(this.READONLY_SELECTOR)
     for (const ro of roList) {
-      if (ro && !ro.closest(".ck-editor__editable")) {
-        this._applyToContainer(ro);
-        didApply = true;
+      if (ro && !ro.closest('.ck-editor__editable')) {
+        this._applyToContainer(ro)
+        didApply = true
       }
     }
 
     // 모든 editable 컨테이너 찾기 (탭이 여러 개일 때 대응)
-    const edList = scope.querySelectorAll(this.EDITABLE_SELECTOR);
+    const edList = scope.querySelectorAll(this.EDITABLE_SELECTOR)
     for (const ed of edList) {
       if (ed) {
-        this._applyToContainer(ed);
-        didApply = true;
+        this._applyToContainer(ed)
+        didApply = true
       }
     }
 
@@ -372,8 +379,11 @@ class OutlineByHeadingWidget extends api.NoteContextAwareWidget {
       .ck-content blockquote p {
           margin-left: unset !important;
       }
-      .ck-content > div > div > div > ul {
+      .ck-content ul {
           margin-left: 1.25rem;
+      }
+      .ck-content ul > li > ul {
+          margin-left: unset;
       }
       @media (prefers-color-scheme: dark) {
           .ck-content blockquote {
